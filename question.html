@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Special Questions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        #question {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #nextBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+            display: none;
+        }
+
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="question">Click start ❤️</div>
+    <button id="nextBtn" onclick="nextQuestion()">Start</button>
+    <button id="yesBtn" onclick="answerYes()">Yes ❤️</button>
+    <button id="noBtn" onclick="answerNo()">No 😢</button>
+</div>
+
+<script>
+    const questions = [
+        "Kya tum meri gf banogi?",
+        "Kya tum meri jivan sathi banogi?",
+        "Kya tum mera sath nibhaogi?",
+        "Kya aap meri wifi banogi?"
+    ];
+
+    let index = 0;
+
+    function nextQuestion() {
+        if (index < questions.length - 1) {
+            document.getElementById("question").innerText = questions[index];
+            index++;
+        } else {
+            document.getElementById("question").innerText = questions[index];
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("yesBtn").style.display = "inline-block";
+            document.getElementById("noBtn").style.display = "inline-block";
+        }
+    }
+
+    function answerYes() {
+        document.getElementById("question").innerText = "Yayyyy! ❤️🥰";
+        document.getElementById("yesBtn").style.display = "none";
+        document.getElementById("noBtn").style.display = "none";
+    }
+
+    function answerNo() {
+        document.getElementById("question").innerText = "Soch lo fir se 😜";
+    }
+</script>
+
+</body>
+</html>
